@@ -1613,7 +1613,8 @@ function openSaveFolder(subfolder) --By Slime
 end
 
 function getupdate()
-	local onlinedata, code = http.request("http://server.stabyourself.net/mari0/?mode=mappacks")
+	local https = require("https")
+	local code, onlinedata, header = https.request("https://server.stabyourself.net/mari0/?mode=mappacks")
 
 	if code ~= 200 then
 		return false
